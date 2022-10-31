@@ -1,0 +1,17 @@
+int kthSmallest(int arr[], int l, int r, int k) {
+        //code here
+        //will be taking max heap
+        priority_queue<int> pq;
+        //insert 1st k elements to the array
+        for(int i=l;i<(l+k);i++){
+            pq.push(arr[i]);
+        }
+        for(int i=l+k;i<=r;i++){
+            if(arr[i]<pq.top()){
+                pq.pop();
+                pq.push(arr[i]);
+            }
+            
+        }
+        return pq.top();
+    }
